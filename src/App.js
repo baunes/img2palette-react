@@ -1,37 +1,13 @@
 import React from 'react';
 import './App.scss';
 
+import { NavBar } from './components/NavBar'
+
 function App() {
   return (
     <section className="hero is-fullheight is-default is-bold">
         <div className="hero-head">
-            <nav className="navbar">
-                <div className="container">
-                    <div className="navbar-brand">
-                        <a className="navbar-item" href="../">
-                            <img src="../images/bulma.png" alt="Logo" />
-                        </a>
-                        <span className="navbar-burger burger" data-target="navbarMenu">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </span>
-                    </div>
-                    <div id="navbarMenu" className="navbar-menu">
-                        <div className="navbar-end">
-                            <div className="tabs is-right">
-                                <ul>
-                                    <li className="is-active"><a>Home</a></li>
-                                    <li><a href="">Examples</a></li>
-                                    <li><a href="">Features</a></li>
-                                    <li><a href="">Team</a></li>
-                                    <li><a href="">Help</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+            <NavBar />
         </div>
         <div className="hero-body">
             <div className="container has-text-centered">
