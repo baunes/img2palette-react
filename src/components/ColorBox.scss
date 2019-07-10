@@ -15,5 +15,6 @@
   padding-bottom: 1.5rem;
 }
 
-.ColorBox-Title {
+.ColorBox-Name.subtitle:not(:last-child) {
+  margin-bottom: 0.5rem;
 }

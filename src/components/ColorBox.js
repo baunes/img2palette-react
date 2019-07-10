@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './ColorBox.scss'
 
-export function ColorBox({ color = "#FFF" }) {
+export function ColorBox({ color = "#FFF", name = "" }) {
   let colorBoxColor = {
     backgroundColor: color
   }
@@ -14,8 +14,9 @@ export function ColorBox({ color = "#FFF" }) {
         <section className="section ColorBox-Color " style={colorBoxColor} />
       </figure>
       <div className="ColorBox-Body">
-        <div className="ColorBox-Title">
-          <p className="subtitle is-5">{color}</p>
+        <div>
+        <p className="subtitle is-7 ColorBox-Name">{name}</p>
+        <p className="subtitle is-5">{color}</p>
         </div>
       </div>
     </div>
@@ -23,5 +24,6 @@ export function ColorBox({ color = "#FFF" }) {
 }
 
 ColorBox.propTypes = {
-  color: PropTypes.string.isRequired
+  color: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired
 }
