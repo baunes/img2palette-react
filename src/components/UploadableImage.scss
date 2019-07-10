@@ -3,3 +3,13 @@
   align-items: center;
   justify-content: space-evenly;
 }
+
+.UploadableImage-Blank {
+  height: 2em;
+  display: flex;
+  align-items: center;
+}
+
+.UploadableImage-progress {
+  margin-bottom: 0 !important;
+}

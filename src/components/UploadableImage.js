@@ -8,16 +8,16 @@ import './UploadableImage.scss'
 export class UploadableImage extends Component {
   state = {
     file: {},
-    randomCounter: 0
+    randomCounter: 0,
+    loading: false
   }
 
   constructor(props) {
-    super(props);
+    super(props)
     this.refImage = React.createRef()
   }
 
   _extractPalette = () => {
-    console.log('Extracting colors')
     Vibrant
       .from(this.refImage.current)
       .getPalette()
@@ -32,12 +32,15 @@ export class UploadableImage extends Component {
         ])
       })
       .catch((palette) => console.error("Error extracting colors", palette))
+      this.setState((prevState) => ({...prevState, loading: false}))
   }
 
   _loadRandom = () => {
     this.setState((prevState) => ({
+      ...prevState,
       file: { preview: `https://picsum.photos/800/600/?random&counter=${prevState.randomCounter}`},
-      randomCounter: prevState.randomCounter + 1
+      randomCounter: prevState.randomCounter + 1,
+      loading: true
     }))
   }
 
@@ -73,9 +76,12 @@ export class UploadableImage extends Component {
               <img ref={this.refImage} crossOrigin="anonymous" className="App-img" src={preview} alt="Description" />
               <input {...getInputProps()} type="file" name="image" accept="image/*" />
             </figure>
-            <br />
+            {this.state.loading
+              ? <div className="UploadableImage-Blank"><progress className="progress is-small is-primary UploadableImage-progress" max="100"></progress></div>
+              : <div className="UploadableImage-Blank"></div>
+            }
             <p className="has-text-centered UploadableImage-Buttons">
-              <button className="button is-medium is-info is-outlined" onClick={this._loadRandom}>
+              <button disabled={this.state.loading} className="button is-medium is-info is-outlined" onClick={this._loadRandom}>
                 Random
               </button>
               <span>Drag your photo to the box or choose a random one.</span>
