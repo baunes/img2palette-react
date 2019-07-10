@@ -6,10 +6,6 @@ export class Img2Palette extends Component {
     usedSearch: false
   }
 
-  _handleClick = () => {
-    this.setState((prevState) => ({ isMenuActive: !prevState.isMenuActive }))
-  }
-
   _renderDefault = () => {
     return (
       <React.Fragment>
