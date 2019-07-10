@@ -14,16 +14,13 @@ export class Img2Palette extends Component {
     return (
       <div className="column is-6 is-offset-1">
         <h1 className="title is-2">
-          Image To Palette
+          From images to Colors
         </h1>
         <h2 className="subtitle is-4">
-          Extract the perfect color palette for the image.
+          Extract the perfect color palette from the image.
         </h2>
         <br />
         <p className="has-text-centered">
-          <button className="button is-medium is-info is-outlined" onClick={this._extractPalette}>
-            Extract
-          </button>
         </p>
       </div>
     )
