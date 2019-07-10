@@ -16,9 +16,9 @@ export function Palette({ colors = [] }) {
     <p className="title is-2">Color Palette</p>
       <div className="container is-flex" style = {style}>
         {
-          colors.map( (color) => (
-            <div key={color} className="ColorBox-Wrapper">
-              <ColorBox color={color} />
+          colors.map( (color, index) => (
+            <div key={index} className="ColorBox-Wrapper">
+              <ColorBox color={color.color} name={color.name} />
             </div>
           ))
         }
@@ -28,5 +28,8 @@ export function Palette({ colors = [] }) {
 }
 
 Palette.propTypes = {
-  colors: PropTypes.arrayOf(PropTypes.string).isRequired
+  colors: PropTypes.arrayOf(PropTypes.exact({
+    color: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
+  })).isRequired
 }
