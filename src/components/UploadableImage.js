@@ -73,7 +73,7 @@ export class UploadableImage extends Component {
         {({ getRootProps, getInputProps }) => (
           <React.Fragment>
             <figure className="image is-4by3" {...getRootProps()}>
-              <img ref={this.refImage} crossOrigin="anonymous" className="App-img" src={preview} alt="Description" />
+              <img ref={this.refImage} crossOrigin="anonymous" className="App-img" src={preview} alt="Drag your photo here or click to select a file." />
               <input {...getInputProps()} type="file" name="image" accept="image/*" />
             </figure>
             {this.state.loading
