@@ -22,7 +22,7 @@ export class NavBar extends Component {
         <div className="container">
           <div className="navbar-brand">
             <a className="navbar-item" href="../">
-              <img src="../images/bulma.png" alt="Logo" />
+              <img src="../images/bulma.png" alt="Img 2 Palette" />
             </a>
             <span className="navbar-burger burger" data-target="navbarMenu" onClick={this._handleClick}>
               <span></span>
