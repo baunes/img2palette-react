@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
-import Vibrant from 'node-vibrant'
 
 import { Palette } from './Palette'
+import { UploadableImage } from './UploadableImage'
 
 export class Img2Palette extends Component {
-  constructor(props) {
-    super(props);
-    this.myRef = React.createRef();
-  }
 
   state = {
     usedSearch: false,
@@ -41,27 +37,11 @@ export class Img2Palette extends Component {
     )
   }
 
-  _extractPalette = () => {
-    console.log("_extractPalette", this.myRef.current);
-    Vibrant
-      .from(this.myRef.current)
-      .getPalette()
-      .then((palette) => {
-        //Vibrant.rgbToHex()
-        console.log(palette);
-        this.setState((state) => ({
-          usedSearch: true,
-          colors: [
-            Vibrant.Util.rgbToHex(...palette.DarkMuted._rgb),
-            Vibrant.Util.rgbToHex(...palette.DarkVibrant._rgb),
-            Vibrant.Util.rgbToHex(...palette.LightMuted._rgb),
-            Vibrant.Util.rgbToHex(...palette.LightVibrant._rgb),
-            Vibrant.Util.rgbToHex(...palette.Muted._rgb),
-            Vibrant.Util.rgbToHex(...palette.Vibrant._rgb)
-          ]
-        }))
-      })
-      .catch((palette) => console.error("Error extracting colors", palette))
+  _onImageSelected = (colors) => {
+    this.setState((state) => ({
+      usedSearch: true,
+      colors
+    }))
   }
 
   render() {
@@ -69,15 +49,13 @@ export class Img2Palette extends Component {
       <div className="container has-text-centered">
         <div className="columns is-vcentered is-centered">
           <div className="column is-5">
-            <figure className="image is-4by3">
-              <img ref={this.myRef} crossOrigin="anonymous" className="App-img" src="https://picsum.photos/800/600/?random" alt="Description" />
-            </figure>
+            <UploadableImage onImageSelected={this._onImageSelected}/>
           </div>
           { this.state.usedSearch
                 ? this._renderColors()
                 : this._renderDefault() }
         </div>
       </div>
-    );
+    )
   }
 }
