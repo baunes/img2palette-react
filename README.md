@@ -1,3 +1,13 @@
+# Imgage to Palette
+
+`The intention of the project is purely educational.`
+
+It consists of a small app built with React to extract a color palette from an image in a browser.
+
+[Demo](https://img2palette-react.netlify.com/)
+
+![Screenshot](https://img2palette-react.netlify.com/screenshots/Screenshot-1.png)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
