@@ -21,13 +21,14 @@ export class NavBar extends Component {
       'navbar-menu': true,
       'is-active': this.state.isMenuActive
     })
+    const textImage = 'Image 2 Palette'
 
     return (
-      <nav className="navbar">
+      <nav className="navbar has-shadow is-spaced">
         <div className="container">
           <div className="navbar-brand">
             <a className="navbar-item" href="../">
-              <img src="../images/bulma.png" alt="Img 2 Palette" />
+              <img src="../images/bulma.png" alt={textImage} />
             </a>
             <span className="navbar-burger burger" data-target="navbarMenu" onClick={this._handleClick}>
               <span></span>
