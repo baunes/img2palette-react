@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
 import classNames from 'classnames'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHome } from '@fortawesome/free-solid-svg-icons'
+import { faGithubAlt } from '@fortawesome/free-brands-svg-icons'
+
+import './NavBar.scss'
 
 export class NavBar extends Component {
 
@@ -34,17 +39,20 @@ export class NavBar extends Component {
             <div className="navbar-end">
               <div className="tabs is-right">
                 <ul>
-                  <li className="is-active"><a href="Home">Home</a></li>
-                  <li><a href="Examples">Examples</a></li>
-                  <li><a href="Features">Features</a></li>
-                  <li><a href="Team">Team</a></li>
-                  <li><a href="Help">Help</a></li>
+                  <li className="is-active">
+                    <a href="Home"><FontAwesomeIcon className="NavBar-menuIcon" icon={faHome} /> Home</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/baunes/img2palette-react">
+                      <FontAwesomeIcon className="NavBar-menuIcon"icon={faGithubAlt} />Github
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
       </nav>
-    );
+    )
   }
 }
